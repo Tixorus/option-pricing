@@ -1,14 +1,3 @@
-/* TODO:
-- interface
-- optimisation (buffer for random numbers?)
-- control variates
-- dividends not 0 (dunno if you can make that work analytically for n = 2)
-- correlation not 0 (for monte-carlo)
-- american (Longstaff-Schwartz?), bermuda options
-- non constant dividents, volatility, interest rate
-*/
-
-
 #include <iostream>
 #include <chrono>
 #include "math.h"
@@ -109,4 +98,5 @@ int main()
     A.S0 = 200;
     A.volatility = 0.2;
     std::cout << monte_carlo(false, 100000000, 0.5, 100, 0.03, 1, &A) - calc_real_price(0.5, 100, 0.03, A)<< "\n";
+
 }
