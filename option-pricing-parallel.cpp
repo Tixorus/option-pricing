@@ -95,7 +95,7 @@ double monte_carlo(bool quasi, int paths, double time, double strike_price, doub
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = end - start;
     auto duration_ms = std::chrono::duration_cast<std::chrono::milliseconds>(duration);
-    std::cout << "Sequential " << (quasi ? "Quasi" : "Pseudo") << " MC finished in: " << duration_ms.count() << " milliseconds\n";
+    std::cout << "Parallel " << (quasi ? "Quasi" : "Pseudo") << " MC finished in: " << duration_ms.count() << " milliseconds\n";
 
     return (C / paths) * exp(-interest_rate * time);
 }
@@ -117,4 +117,5 @@ int main()
     A.S0 = 200;
     A.volatility = 0.2;
     std::cout << monte_carlo(false, 100000000, 0.5, 100, 0.03, 1, &A) - calc_real_price(0.5, 100, 0.03, A) << "\n";
+
 }
