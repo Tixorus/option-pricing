@@ -4,7 +4,8 @@
 #include "mkl.h"
 
 //https://people.sc.fsu.edu/~jburkardt/cpp_src/toms462/toms462.html
-#include "F:\cppstuff\toms\toms462.hpp"
+#include "..\include\toms462.hpp"
+#include "..\include\toms462.cpp"
 
 struct Stock
 {
@@ -101,4 +102,5 @@ int main()
     B.volatility = 0.3;
     Stock Ar[2] = { A, B };
     std::cout << calc_real_price_two_no_div(0.5, 100, 0.03, 0, A, B) - monte_carlo(true, 1000000000, 0.5, 100, 0.03, 1, Ar) << "\n";
+
 }
